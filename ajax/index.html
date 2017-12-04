@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax请求</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>
+    $(function () {
+        //getReq();
+        postReq();
+    });
+
+    /**
+     * 发起get请求
+     * @param id
+     */
+    function getReq() {
+        $.ajax({
+            url: 'http://localhost:8000/index/get?id=1&name=2',
+            type: "GET",
+            headers: {
+                Accept: "application/json"
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    }
+
+
+    function postReq() {
+        $.ajax({
+            url: 'http://localhost:8000/index/post',
+            type: "POST",
+            headers: {
+                Accept: "application/json"
+            },
+            data:{
+                user_id:4,
+                username:'小明'
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    }
+</script>
+</body>
+</html>
